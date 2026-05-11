@@ -8,11 +8,12 @@ repository = "https://github.com/SemanticWebLanguageServer/swls"
 
 [language_servers.swls]
 name = "SWLS"
-languages = ["Turtle", "TriG", "SPARQL"]
+languages = ["Turtle", "TriG", "JSON-LD", "SPARQL"]
 
 [language_servers.swls.language_ids]
 "Turtle" = "turtle"
 "TriG" = "trig"
+"JSON-LD" = "jsonld"
 "SPARQL" = "sparql"
 
 [grammars.turtle]
