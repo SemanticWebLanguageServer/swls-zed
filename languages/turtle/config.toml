@@ -1,5 +1,4 @@
 name = "Turtle"
-grammar = "turtle"
 path_suffixes = ["ttl"]
 line_comments = ["# "]
 brackets = [

@@ -1,5 +1,4 @@
 name = "JSON-LD"
-grammar = "json"
 path_suffixes = ["jsonld"]
 brackets = [
     { start = "{", end = "}", close = true, newline = true },

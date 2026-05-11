@@ -4,7 +4,7 @@ description = "Semantic Web Language Server for Turtle, TriG, SPARQL and JSON-LD
 version = "0.0.1"
 schema_version = 1
 authors = ["Arthur Vercruysse"]
-repository = "https://github.com/SemanticWebLanguageServer/swls"
+repository = "https://github.com/SemanticWebLanguageServer/swls-zed"
 
 [language_servers.swls]
 name = "SWLS"
@@ -15,11 +15,3 @@ languages = ["Turtle", "TriG", "JSON-LD", "SPARQL"]
 "TriG" = "trig"
 "JSON-LD" = "jsonld"
 "SPARQL" = "sparql"
-
-[grammars.turtle]
-repository = "https://github.com/GordianDziwis/tree-sitter-turtle"
-rev = "7f789ea7ef765080f71a298fc96b7c957fa24422"
-
-[grammars.sparql]
-repository = "https://github.com/GordianDziwis/tree-sitter-sparql"
-rev = "1ef52d35a73a2a5f2e433ecfd1c751c1360a923b"

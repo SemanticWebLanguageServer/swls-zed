@@ -1,5 +1,4 @@
 name = "SPARQL"
-grammar = "sparql"
 path_suffixes = ["sq", "rq", "sparql"]
 line_comments = ["# "]
 brackets = [
