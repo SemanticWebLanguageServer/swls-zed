@@ -188,7 +188,6 @@ impl zed::Extension for SwlsExtension {
             "log": "debug",
             "turtle": true,
             "trig": true,
-            "jsonld": true,
             "sparql": false,
         })))
     }
