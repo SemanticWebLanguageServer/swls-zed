@@ -1,10 +1,13 @@
 name = "Turtle"
-path_suffixes = ["ttl"]
+grammar = "turtle"
+path_suffixes = ["ttl", "turtle"]
 line_comments = ["# "]
+tab_size = 4
 brackets = [
-    { start = "<", end = ">", close = true, newline = false },
+    { start = "<", end = ">", close = true, newline = false, not_in = ["string", "comment"] },
     { start = "[", end = "]", close = true, newline = true },
     { start = "(", end = ")", close = true, newline = true },
-    { start = "\"", end = "\"", close = true, newline = false },
-    { start = "'", end = "'", close = true, newline = false },
+    { start = "{", end = "}", close = true, newline = true },
+    { start = "\"", end = "\"", close = true, newline = false, not_in = ["string", "comment"] },
+    { start = "'", end = "'", close = true, newline = false, not_in = ["string", "comment"] },
 ]
