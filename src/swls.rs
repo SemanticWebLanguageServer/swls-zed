@@ -100,8 +100,8 @@ impl SwlsExtension {
                 zed::Os::Windows => "windows",
             },
             arch = match (&platform, &arch) {
-                (zed::Os::Mac, zed::Architecture::Aarch64) => "arm64",
-                (_, zed::Architecture::Aarch64) => "aarch64",
+                (zed::Os::Linux, zed::Architecture::Aarch64) => "aarch64",
+                (_, zed::Architecture::Aarch64) => "arm64",
                 (_, zed::Architecture::X8664) => "x86_64",
                 (_, zed::Architecture::X86) =>
                     return Err(format!("unsupported architecture: {arch:?}")),
@@ -122,7 +122,7 @@ impl SwlsExtension {
         fs::create_dir_all(&version_dir)
             .map_err(|e| format!("failed to create directory: {e}"))?;
 
-        let binary_path = format!("{version_dir}/swls");
+        let binary_path = format!("{version_dir}/{}", binary_name(platform));
 
         if !fs::metadata(&binary_path).is_ok_and(|s| s.is_file()) {
             zed::set_language_server_installation_status(
@@ -185,7 +185,7 @@ impl zed::Extension for SwlsExtension {
 
         // Default initialization options matching the VS Code extension defaults
         Ok(Some(json!({
-            "log": "debug",
+            "log": "info",
             "turtle": true,
             "trig": true,
             "jsonld": true,
@@ -206,9 +206,17 @@ impl zed::Extension for SwlsExtension {
     }
 }
 
+fn binary_name(platform: zed::Os) -> &'static str {
+    match platform {
+        zed::Os::Windows => "swls.exe",
+        _ => "swls",
+    }
+}
+
 fn find_existing_binary() -> Option<String> {
+    let (platform, _) = zed::current_platform();
     fs::read_dir(".").ok()?.flatten().find_map(|entry| {
-        let path = entry.path().join("swls");
+        let path = entry.path().join(binary_name(platform));
         if path.is_file()
             && entry
                 .file_name()

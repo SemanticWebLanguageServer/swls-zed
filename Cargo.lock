@@ -415,6 +415,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "semantic-web"
+version = "0.1.0"
+dependencies = [
+ "zed_extension_api",
+]
+
+[[package]]
 name = "semver"
 version = "1.0.28"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -747,13 +754,6 @@ dependencies = [
  "serde",
  "serde_json",
  "wit-bindgen",
-]
-
-[[package]]
-name = "zed_swls"
-version = "0.0.1"
-dependencies = [
- "zed_extension_api",
 ]
 
 [[package]]
